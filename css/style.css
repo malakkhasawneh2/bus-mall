@@ -1,0 +1,22 @@
+img{ height: 250px;
+    width:250px;
+    object-fit:contain;
+     
+    }
+
+h2{
+    font-size: 50px;
+    background-color: rgb(192, 134, 247);
+    color: rgb(238, 218, 233);
+    text-align: center;
+    height: 90px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding-top: 40px;
+}
+
+ul {
+    font-size: 30px;
+    color: rgb(169, 118, 236);
+    text-align: justify;
+}
