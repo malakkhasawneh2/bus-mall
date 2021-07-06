@@ -17,9 +17,10 @@ function Product(name, imgPath){
   this.views = 0;
   Product.allProducts.push(this);
   arrOfName.push(this.name);
-}
+  }
 
 Product.allProducts = [];
+
 
 new Product('bag', './img/bag.jpg');
 new Product('banana', './img/banana.jpg');
@@ -101,10 +102,12 @@ function handleClick(event){
           randomImage();
   }else{
       btnEl = document.getElementById('btn');
+      saveToLs();
       btnEl.addEventListener('click',handelShow);
       leftImageElement.removeEventListener('click',handleClick);
       middleImageElement.removeEventListener('click',handleClick);
       rightImageElement.removeEventListener('click',handleClick);
+
   }
 }
 
@@ -113,17 +116,20 @@ function handelShow(){
   renderList();
   gettingChart();
   btnEl.removeEventListener('click',handelShow)
+
 }
 
 let arrOfviews = [];
 function renderList(){
   let ul = document.getElementById('unList');
+  // ul.innerHTML="" ;
   for(let i = 0 ; i < Product.allProducts.length; i++){
     arrOfVotes.push(Product.allProducts[i].votes)
     arrOfviews.push(Product.allProducts[i].views)
     let li = document.createElement('li');
     ul.appendChild(li);
-    li.textContent = `${Product.allProducts[i].name} has this number of votes ${Product.allProducts[i].votes} and this number of views ${Product.allProducts[i].views}`   
+    li.textContent = `${Product.allProducts[i].name} has this number of votes ${Product.allProducts[i].votes} and this number of views ${Product.allProducts[i].views}`  
+ 
   }
 }
 
@@ -132,6 +138,20 @@ function renderList(){
 function generateRandomIndex(){
     return Math.floor(Math.random() * Product.allProducts.length);
 }
+
+
+function saveToLs() {
+  let conArr = JSON.stringify(Product.allProducts);
+  localStorage.setItem('objects', conArr);
+}
+function Finally() {
+  let data = localStorage.getItem('objects');
+  let parsedOrder = JSON.parse(data);
+  if (parsedOrder) {
+    Product.allProducts = parsedOrder;
+  }
+}
+
 
 function gettingChart(){
   let ctx = document.getElementById('myChart')
@@ -158,4 +178,6 @@ function gettingChart(){
           }]
       },
   })
-  }
+}
+
+Finally();
