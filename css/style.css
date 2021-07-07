@@ -1,6 +1,7 @@
-img{ height: 250px;
-    width:250px;
+img{ height: 400px;
+    width:400px;
     object-fit:contain;
+    /* align-items: center; */
      
     }
 
@@ -16,6 +17,7 @@ h2{
 }
 
 ul {
+    list-style:url() ;
     margin-top: 30px;
     margin-bottom: 30px;
     padding-top: 20px;
@@ -27,9 +29,11 @@ ul {
 }
 #btn {
     width: 150px;
-    height: 40px;
+    height: 70px;
     text-align: center;
     color: rgb(243, 199, 217);
     background-color: rgb(129, 109, 155);
-    font-size: 15px;
+    font-size: 25px;
+    margin-left: 500px;
+    margin-top: 100px;
 }
